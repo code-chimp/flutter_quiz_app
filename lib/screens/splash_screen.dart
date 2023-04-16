@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+  const SplashScreen(this.handlePress, {super.key});
+
+  final void Function() handlePress;
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +13,7 @@ class SplashScreen extends StatelessWidget {
         children: [
           Image.asset(
             'assets/images/quiz-logo.png',
+            color: const Color.fromARGB(125, 255, 255, 255),
             width: 300,
           ),
           const SizedBox(
@@ -24,12 +27,13 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          OutlinedButton(
-            onPressed: () {},
+          OutlinedButton.icon(
+            onPressed: handlePress,
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
             ),
-            child: const Text('Start Quiz'),
+            icon: const Icon(Icons.arrow_right_alt),
+            label: const Text('Start Quiz'),
           ),
         ],
       ),
