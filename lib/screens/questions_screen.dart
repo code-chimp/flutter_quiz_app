@@ -12,10 +12,10 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: const [
           Text(
             'Questions Screen',
             style: TextStyle(
