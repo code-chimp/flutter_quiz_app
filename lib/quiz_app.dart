@@ -3,6 +3,11 @@ import 'package:quiz_app/screens/questions_screen.dart';
 import 'package:quiz_app/screens/splash_screen.dart';
 import 'package:quiz_app/shared/app_container.dart';
 
+enum Screens {
+  splash,
+  quiz,
+}
+
 class QuizApp extends StatefulWidget {
   const QuizApp({super.key});
 
@@ -13,18 +18,12 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  Widget? activeScreen;
+  var activeScreen = Screens.splash;
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionsScreen();
+      activeScreen = Screens.quiz;
     });
-  }
-
-  @override
-  void initState() {
-    activeScreen = SplashScreen(switchScreen);
-    super.initState();
   }
 
   @override
@@ -32,7 +31,9 @@ class _QuizAppState extends State<QuizApp> {
     return MaterialApp(
       home: Scaffold(
         body: AppContainer(
-          child: activeScreen,
+          child: activeScreen == Screens.splash
+              ? SplashScreen(switchScreen)
+              : const QuestionsScreen(),
         ),
       ),
     );

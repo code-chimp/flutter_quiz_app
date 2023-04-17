@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppContainer extends StatelessWidget {
-  const AppContainer({super.key, this.child});
+  const AppContainer({super.key, required this.child});
 
-  final Widget? child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
